@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>url-shortner</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@300;400;500&display=swap');
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      background-color: #f5f0e8;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      color: #5c4a3d;
+    }
+    
+    main {
+      text-align: center;
+      padding: 2rem;
+    }
+    
+    h1 {
+      font-size: clamp(3rem, 12vw, 8rem);
+      font-weight: 300;
+      letter-spacing: 0.15em;
+      margin-bottom: 1.5rem;
+      color: #4a3c31;
+    }
+    
+    p {
+      font-size: clamp(1rem, 2.5vw, 1.25rem);
+      font-weight: 400;
+      letter-spacing: 0.3em;
+      text-transform: lowercase;
+      opacity: 0.7;
+    }
+    
+    .line {
+      width: 60px;
+      height: 1px;
+      background-color: #8b7355;
+      margin: 2rem auto;
+      opacity: 0.4;
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>url shortner</h1>
+    <% if (locals.id) { %>
+    <p>
+      Generated URL:
+      <a href="http://localhost:8001/url/<%= id %>" target="_blank">
+        http://localhost:8001/url/<%= id %>
+      </a>
+    </p>
+  <% } %>
+    <div class="line"></div>
+    <form method="POST" action="/url">
+
+        <label>enter your orginal url</label>
+        <input type="text" name="url" placeholder="https://exampleurl.com">
+    
+        <button type="submit">generate</button>
+    </form>
+    
+    
+  </main>
+</body>
+</html>
